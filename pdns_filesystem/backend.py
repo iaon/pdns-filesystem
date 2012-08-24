@@ -1,7 +1,3 @@
-from boto.dynamodb import connect_to_region
-from boto.dynamodb.condition import EQ
-from boto.dynamodb.exceptions import DynamoDBKeyNotFoundError
-
 class Backend(object):
     def __init__(self, connection, table_name):
         self.con = connection

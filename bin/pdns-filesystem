@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+"""pdns-filesystem
+
+Usage:
+  pdns-filesystem [OPTIONS] --directory=DIR
+  pdns-filesystem -h | --help
+  pdns-filesystem -v | --version
+
+Options:
+  -h --help                               Show this screen.
+  -v --version                            Show the version.
+
+  -d --directory=DIR                      Directory in which records are stored.
+
+"""
+
+from docopt import docopt
+
+from pdns_filesystem import __version__, app
+
+params = docopt(__doc__, version='pdns-filesystem %s' % __version__)
+app.run(params)

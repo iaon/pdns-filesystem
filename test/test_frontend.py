@@ -1,8 +1,8 @@
 import unittest
 from mock import Mock, call
 
-from pdns_dynamodb.frontend import *
-from pdns_dynamodb.version import __version__
+from pdns_filesystem.frontend import *
+from pdns_filesystem.version import __version__
 
 class TestFrontend(unittest.TestCase):
     def setUp(self):
@@ -34,7 +34,7 @@ class TestFrontend(unittest.TestCase):
     def test_valid_helo(self):
         self.input.readline.return_value = 'HELO\t1'
         self.frontend.expect_helo()
-        self.assert_reply('OK\tpdns-dynamodb version %s' % __version__)
+        self.assert_reply('OK\tpdns-filesystem version %s' % __version__)
 
     def test_parsing_the_query(self):
         data = self.frontend.parse_query('Q\texample.com\tIN\tANY\t-1\t0.0.0.0')

@@ -1,7 +1,7 @@
-pdns-dynamodb
+pdns-filesystem
 =============
 
-PowerDNS backend using DynamoDB
+PowerDNS backend using file system
 
 Schema
 ------
@@ -29,13 +29,13 @@ TABLE with the correct values).
       "Statement": [
         {
           "Action": [
-            "dynamodb:DescribeTable",
-            "dynamodb:GetItem",
-            "dynamodb:Query"
+            "filesystem:DescribeTable",
+            "filesystem:GetItem",
+            "filesystem:Query"
           ],
           "Effect": "Allow",
           "Resource": [
-            "arn:aws:dynamodb:REGION:ACCOUNTID:table/TABLE"
+            "arn:aws:filesystem:REGION:ACCOUNTID:table/TABLE"
           ]
         }
       ]
@@ -59,7 +59,7 @@ Create an executable script that looks like
 
     #!/bin/sh
 
-    exec /path/to/pdns-dynamodb -t TABLE -r REGION -I ACCESS_KEY -K /path/to/secret.key
+    exec /path/to/pdns-filesystem -t TABLE -r REGION -I ACCESS_KEY -K /path/to/secret.key
 
 Replacing TABLE, REGION and ACCESS\_KEY with the appropriate values and
 the path to secret key from the previous step.

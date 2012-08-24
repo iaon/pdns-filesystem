@@ -1,8 +1,8 @@
 import unittest
 from mock import Mock, call
-from boto.dynamodb.condition import EQ
+from boto.filesystem.condition import EQ
 
-from pdns_dynamodb.backend import Backend
+from pdns_filesystem.backend import Backend
 
 class TestBackend(unittest.TestCase):
     def setUp(self):

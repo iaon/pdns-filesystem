@@ -1,4 +1,4 @@
-from pdns_dynamodb import __version__
+from pdns_filesystem import __version__
 
 ABI_VERSION = '1'
 
@@ -17,7 +17,7 @@ class PdnsFrontend(object):
         else:
             _, abi = line.split('\t')
             if abi == ABI_VERSION:
-                self.reply('OK\tpdns-dynamodb version %s' % __version__)
+                self.reply('OK\tpdns-filesystem version %s' % __version__)
             else:
                 self.fail('got abi-version %s, expected %s' % (abi, ABI_VERSION))
                 self.readline()
